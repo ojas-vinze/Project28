@@ -1,5 +1,5 @@
 class Stone {
-    constructor(x,y,width,height) {
+    constructor(x,y,r) {
       var options = {
           isStatic: false,
           restitution:0,
@@ -8,15 +8,14 @@ class Stone {
       }
       this.x=x;
       this.y=y;
-      this.width = width;
-      this.height = height;
-      this.body = Bodies.rectangle(this.x,this.y,this.width,this.height,options);
-      this.image = loadImage("Images/stone.png");
+      this.r=r
+      this.body = Bodies.circle(this.x,this.y,this.r,options);
+      this.image = loadImage("stone.png");
       World.add(world, this.body);
     }
     display(){
       var spos =this.body.position;
       imageMode(CENTER);
-      image(this.image,spos.x,spos.y,this.width,this.height);
+      image(this.image,spos.x,spos.y,this.r,this.r);
     }
   }
