@@ -5,6 +5,8 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
+var engine,world;
+
 function preload(){
 	
 }
@@ -20,22 +22,19 @@ function setup() {
 	ground = new Ground(400,690,width,20);
 	tree = new Tree(600,390,400,600);
 
-	mango1 = new Mango(520,200,50);
-	mango2 = new Mango(658,210,50);
-	mango3 = new Mango(597,300,50);
-	mango4 = new Mango(514,290,50);
-	mango5 = new Mango(700,270,50);
+	mango1 = new Mango(520,200,75);
+	mango2 = new Mango(658,210,60);
+	mango3 = new Mango(597,300,60);
+	mango4 = new Mango(514,290,40);
 	mango6 = new Mango(581,250,50);
+	mango5 = new Mango(700,270,70);
 
-	fill("white")
-	rectMode(CENTER);
-	rect(200,200,50,50);
 
 	boy = new Boy(180,590,300,350);
-	stone = new Stone(85,550,30);
+	stone = new Stone(85,550,40);
 
-	slingshot = new Slingshot(stone,{x:55,y:500});
-
+	slingshot = new Slingshot(stone.body,{x:88,y:510});
+	
 	Engine.run(engine);
   
 }
@@ -75,7 +74,7 @@ function mouseReleased(){
 
 function keyPressed(){
 	if(keyCode === 32){
-		Matter.Body.setPosition(stone.body,{x:235,y:420});
+		Matter.Body.setPosition(stone.body,{x:88,y:510});
 		slingshot.attach(stone.body);
 	}
 }
