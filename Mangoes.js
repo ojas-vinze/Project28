@@ -6,10 +6,11 @@ class Mango {
       }
       this.x=x;
       this.y=y;
+      this.r=r;
       this.width = width;
       this.height = height;
       this.body = Bodies.circle(this.x,this.y,this.r,options);
-      this.image = loadImage("Images/mango.png");
+      this.image = loadImage("mango.png");
       World.add(world, this.body);
     }
     display(){
